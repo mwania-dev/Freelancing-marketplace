@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects – HireHub</title>              <!-- change the title -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="projects">                      <!-- projects / freelancers / dashboard -->
+
+  <div id="siteHeader"></div>
+
+ <main>
+  <section>
+    <h2>Browse Projects</h2>
+
+    <div class="toolbar">
+      <input type="text" id="projectSearch" placeholder="Search projects by title…">
+
+      <select id="categoryFilter"></select>
+
+      <select id="budgetFilter">
+        <option value="all">Any budget</option>
+        <option value="low">Up to $300</option>
+        <option value="mid">$300 – $1,000</option>
+        <option value="high">Over $1,000</option>
+      </select>
+
+      <select id="sortProjects">
+        <option value="deadline">Deadline: soonest</option>
+        <option value="budgetHigh">Budget: high to low</option>
+        <option value="budgetLow">Budget: low to high</option>
+      </select>
+    </div>
+
+    <div class="results-info">
+      <span id="resultCount"></span>
+      <button class="ghost small" id="clearFilters">Clear filters</button>
+    </div>
+
+    <div class="grid" id="projectGrid"></div>
+  </section>
+</main> 
+  <div id="siteFooter"></div>
+
+ <script src="js/layout.js"></script>
+<script src="js/data.js"></script>
+<script src="js/projects.js"></script>
+</body>
+</html>

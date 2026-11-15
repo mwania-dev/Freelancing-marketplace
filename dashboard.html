@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects – HireHub</title>              <!-- change the title -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="projects">                      <!-- projects / freelancers / dashboard -->
+
+  <div id="siteHeader"></div>
+
+  <main>
+  <section>
+    <h2>My Dashboard</h2>
+    <p class="desc" id="dashSub"></p>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="proposals">My Proposals</button>
+      <button class="tab" data-tab="posted">My Projects</button>
+      <button class="tab" data-tab="profile">Profile</button>
+    </div>
+
+    <div id="tabContent"></div>
+  </section>
+</main>
+  <div id="siteFooter"></div>
+
+ <script src="js/layout.js"></script>
+<script src="js/data.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

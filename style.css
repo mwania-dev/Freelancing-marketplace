@@ -1,0 +1,904 @@
+/* ---------- 1. Variables (change colors in one place) ---------- */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #1c1f2e;
+  --muted: #6b7185;
+  --brand: #4f46e5;
+  --brand-2: #06b6d4;
+  --line: #e4e6ef;
+}
+
+/* ---------- 2. Reset and base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;   /* so the sticky navbar doesn't cover headings */
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- 3. Buttons ---------- */
+.btn,
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 18px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.btn:hover,
+button:hover {
+  opacity: 0.9;
+}
+
+/* ---------- 4. Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--brand);
+}
+
+.navbar nav {
+  display: flex;
+  gap: 18px;
+  margin-left: auto;   /* pushes the links to the right */
+}
+
+.navbar nav a {
+  font-weight: 500;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar nav a:hover {
+  color: var(--brand);
+}
+
+.navbar nav a.active {   /* the page you are on */
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+/* ---------- 5. Page sections ---------- */
+main section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+main section h2 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+/* ---------- 6. Hero ---------- */
+.hero {
+  max-width: none;   /* let the background span the full width */
+  text-align: center;
+  padding: 80px 24px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);   /* scales with screen size */
+  line-height: 1.15;
+  max-width: 750px;
+  margin: 0 auto 12px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 22px;
+  font-size: 1.1rem;
+}
+
+.hero .btn {
+  background: #fff;
+  color: var(--brand);
+  margin: 4px;
+}
+
+.hero .btn-light {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+/* ---------- 7. Footer ---------- */
+footer {
+  margin-top: 40px;
+  padding: 28px 24px 18px;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto 16px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.footer-grid strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.footer-grid a {
+  display: block;
+}
+
+.footer-grid a:hover {
+  color: var(--brand);
+}
+
+footer .copy {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  text-align: center;
+}
+/* ---------- 9. Cards, grids, tags (Step 3) ---------- */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+}
+
+.card .btn {
+  margin-top: auto;      /* pushes the button to the bottom of every card */
+  text-align: center;
+}
+
+.btn.small {
+  padding: 7px 14px;
+}
+
+.desc {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.badge {
+  align-self: flex-start;
+  background: #e0e7ff;
+  color: var(--brand);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 99px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 0.78rem;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.section-head h2 {
+  margin: 0;
+}
+
+.section-head a {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.cat-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.cat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.cat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand);
+}
+
+.cat-emoji {
+  font-size: 2rem;
+}
+
+/* ---------- 13. Freelancers page and profile pop-up (Step 7) ---------- */
+.toolbar.three {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--surface);
+  width: min(560px, 94%);
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 18px 22px 24px;
+}
+
+.modal-box h3 {
+  margin: 18px 0 6px;
+}
+
+.drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-head .avatar {
+  width: 80px;
+  height: 80px;
+  font-size: 2.4rem;
+  flex-shrink: 0;
+}
+
+.profile-head .meta {
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.portfolio {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.portfolio li {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.92rem;
+}
+
+.review {
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+}
+
+.stars {
+  color: #f59e0b;
+  letter-spacing: 1px;
+}
+
+/* ---------- 14. Dashboard (Step 8) ---------- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  margin: 16px 0 22px;
+  overflow-x: auto;
+}
+
+.tab {
+  background: transparent;
+  color: var(--muted);
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+.tab.active {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+.dash-h {
+  margin: 22px 0 10px;
+}
+
+.stats {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-card strong {
+  font-size: 1.8rem;
+  color: var(--brand);
+  line-height: 1.1;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.list-row a strong:hover {
+  color: var(--brand);
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.row-actions select {
+  width: auto;
+  padding: 5px 8px;
+}
+
+.pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.pill.pending     { background: #fef3c7; color: #b45309; }
+.pill.open        { background: #d9f3e4; color: #1b8a4b; }
+.pill.in-progress { background: #dbeafe; color: #1d4ed8; }
+.pill.completed   { background: #e0e7ff; color: #4f46e5; }
+
+.empty-box {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.empty-box .btn {
+  margin-top: 10px;
+}@media (max-width: 700px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.flash {
+  background: #d9f3e4;
+  color: #1b8a4b;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.form-card.wide {
+  max-width: none;
+  margin-top: 24px;
+}
+
+.two-col {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+}
+  .list-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row-actions {
+    justify-content: flex-start;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  /* ---------- 15. Dark mode and polish (Step 9) ---------- */
+
+/* Colours that were hard-coded earlier now become variables */
+:root {
+  --badge-bg: #e0e7ff;
+  --ok-bg: #d9f3e4;
+  --ok-text: #1b8a4b;
+  --bad-bg: #fbdcd8;
+  --bad-text: #c0392b;
+  --warn-bg: #fef3c7;
+  --warn-text: #b45309;
+  --info-bg: #dbeafe;
+  --info-text: #1d4ed8;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1120;
+  --surface: #1a1d33;
+  --text: #eceefa;
+  --muted: #a3a8c3;
+  --brand: #6366f1;
+  --line: #2e3250;
+  --badge-bg: #2b2f63;
+  --ok-bg: #12382a;
+  --ok-text: #6ee7a8;
+  --bad-bg: #4a1f1b;
+  --bad-text: #ff9d92;
+  --warn-bg: #4a3a12;
+  --warn-text: #fcd34d;
+  --info-bg: #1b2b55;
+  --info-text: #93c5fd;
+  color-scheme: dark;
+}
+
+/* Re-point the earlier hard-coded colours to the variables */
+.badge                { background: var(--badge-bg); }
+.status.open          { background: var(--ok-bg);   color: var(--ok-text); }
+.status.closed        { background: var(--bad-bg);  color: var(--bad-text); }
+.pill.pending         { background: var(--warn-bg); color: var(--warn-text); }
+.pill.open            { background: var(--ok-bg);   color: var(--ok-text); }
+.pill.in-progress     { background: var(--info-bg); color: var(--info-text); }
+.pill.completed       { background: var(--badge-bg); color: var(--brand); }
+.flash                { background: var(--ok-bg);   color: var(--ok-text); }
+.error                { color: var(--bad-text); }
+
+:root[data-theme="dark"] .badge,
+:root[data-theme="dark"] .pill.completed {
+  color: #c7ccff;
+}
+
+/* Mobile menu button is hidden on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Long words in titles should wrap instead of pushing the page sideways */
+.card h3,
+.detail-main h1,
+.list-row strong {
+  overflow-wrap: anywhere;
+}
+
+/* Keyboard users get a visible focus ring on links and buttons */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* ---------- 16. Mobile (keep this LAST) ---------- */
+@media (max-width: 700px) {
+
+  /* Navbar: logo, theme button and ☰ on one row; links drop down */
+  .navbar {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .navbar #themeBtn {
+    margin-left: auto;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  .navbar nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    margin-left: 0;
+    padding: 6px 16px 12px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar nav.open {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar nav a.active {
+    border-bottom-color: var(--brand);
+  }
+
+  /* Spacing */
+  .hero {
+    padding: 50px 16px;
+  }
+
+  main section {
+    padding: 24px 16px;
+  }
+
+  /* Filters: search on its own row, dropdowns two per row */
+  .toolbar,
+  .toolbar.three {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .toolbar input[type="text"] {
+    grid-column: 1 / -1;
+  }
+
+  /* Project details: sidebar goes under the content */
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-side {
+    position: static;
+  }
+
+  /* Dashboard rows and the post form */
+  .list-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row-actions {
+    justify-content: flex-start;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- 12. Proposal form (Step 6) ---------- */
+.form-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.form-card h2 {
+  margin-bottom: 4px;
+}
+
+.form-card label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 14px 0 4px;
+}
+
+.form-card input,
+.form-card textarea {
+  font: inherit;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+
+.form-card textarea {
+  resize: vertical;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 0.82rem;
+  min-height: 1.2em;
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.row-between .desc {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 3rem;
+}
+
+.form-card .btn {
+  margin: 14px 4px 0;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+/* ---------- 10. Toolbar and filters (Step 4) ---------- */
+.toolbar {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  margin-bottom: 12px;
+}
+
+input[type="text"],
+select {
+  font: inherit;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+button.small {
+  padding: 6px 12px;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.empty {
+  color: var(--muted);
+  padding: 20px;
+}
+/* ---------- 11. Project details page (Step 5) ---------- */
+.back {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.detail-layout {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+}
+
+.detail-main {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.detail-main h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  margin: 10px 0 6px;
+}
+
+.detail-main h3 {
+  margin: 22px 0 6px;
+}
+
+.detail-side {
+  display: grid;
+  gap: 16px;
+  position: sticky;
+  top: 80px;               /* stays in view under the navbar while scrolling */
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+.stat span {
+  color: var(--muted);
+}
+
+.btn.block,
+button.block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.status {
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 99px;
+  font-size: 0.8rem;
+}
+
+.status.open   { background: #d9f3e4; color: #1b8a4b; }
+.status.closed { background: #fbdcd8; color: #c0392b; }
+
+.client-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.avatar.small {
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.not-found h2 {
+  margin-bottom: 8px;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

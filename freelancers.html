@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects – HireHub</title>              <!-- change the title -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="projects">                      <!-- projects / freelancers / dashboard -->
+
+  <div id="siteHeader"></div>
+
+ <main>
+  <section>
+    <h2>Find Freelancers</h2>
+
+    <div class="toolbar three">
+      <input type="text" id="skillSearch" placeholder="Search by skill, e.g. React, SEO, Logo…">
+
+      <select id="levelFilter">
+        <option value="all">Any level</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Expert">Expert</option>
+      </select>
+
+      <select id="sortFreelancers">
+        <option value="rating">Top rated</option>
+        <option value="reviews">Most reviews</option>
+      </select>
+    </div>
+
+    <div class="results-info">
+      <span id="resultCount"></span>
+      <button class="ghost small" id="clearFilters">Clear filters</button>
+    </div>
+
+    <div class="grid" id="freelancerGrid"></div>
+  </section>
+</main>
+
+<!-- Profile pop-up -->
+<div class="overlay" id="profileOverlay">
+  <div class="modal-box" id="profileBox"></div>
+</div>
+
+  <div id="siteFooter"></div>
+
+ <script src="js/layout.js"></script>
+<script src="js/data.js"></script>
+<script src="js/freelancers.js"></script>
+</html>
