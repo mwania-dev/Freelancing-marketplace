@@ -4,7 +4,7 @@ A responsive freelancing marketplace where clients post projects and
 freelancers browse opportunities, submit proposals and manage their profiles.
 Built for the Sqrock IT Solutions Web Development Internship (Phase 2, Task 2).
 
-**Live demo:** [add your link here]
+**Live demo:** [ https://mwania-dev.github.io/Freelancing-marketplace/]
 
 ![Homepage](screenshots/home.png)
 
